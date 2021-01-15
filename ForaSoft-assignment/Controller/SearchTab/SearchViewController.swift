@@ -61,7 +61,7 @@ class SearchViewController: UIViewController {
         configureUI()
         configureCollectionView()
         configureSearchBar()
-//        fetchAlbums(with: "Frank Sinatra")
+//        fetchAlbums(with: "Frank Sinatra") // test
     }
     
     // MARK: - API
