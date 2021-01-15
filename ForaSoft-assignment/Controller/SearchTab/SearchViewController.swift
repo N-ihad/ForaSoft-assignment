@@ -68,7 +68,7 @@ class SearchViewController: UIViewController {
     
     func fetchAlbums(with title: String) {
         guard DeviceManager.isConnectedToNetwork() else { presentNoWiFiAlert(); return }
-        
+
         DispatchQueue.main.async {
             self.showLoadingView()
         }
