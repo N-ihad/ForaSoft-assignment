@@ -38,14 +38,16 @@ class TabBarController: UITabBarController {
     }
     
     func configureViewControllers() {
-        
+        let searchViewController = SearchViewController()
         let searchNav = templateNavigationController(image: UIImage(systemName: "magnifyingglass"),
                                                      navTitle: "Search",
-                                                     rootViewController: SearchViewController())
+                                                     rootViewController: searchViewController)
         
+        let historyViewController = HistoryViewController()
+        historyViewController.delegate = searchViewController
         let historyNav = templateNavigationController(image: UIImage(systemName: "list.star"),
                                                       navTitle: "History",
-                                                      rootViewController: HistoryViewController())
+                                                      rootViewController: historyViewController)
         
         viewControllers = [searchNav, historyNav]
     }
