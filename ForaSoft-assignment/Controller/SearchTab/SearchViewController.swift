@@ -126,6 +126,8 @@ class SearchViewController: UIViewController {
     }
     
     func showLoadingView() {
+        searchController.searchBar.isUserInteractionEnabled = false
+        
         view.addSubview(loadingView)
         loadingView.autoCenterInSuperview()
 
@@ -138,6 +140,7 @@ class SearchViewController: UIViewController {
     func removeLoadingView() {
         spinnerIndicatorView.stopAnimating()
         loadingView.removeFromSuperview()
+        searchController.searchBar.isUserInteractionEnabled = true
     }
     
 }
@@ -190,7 +193,7 @@ extension SearchViewController: UISearchBarDelegate, UISearchControllerDelegate 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchText = searchBar.text else { return }
         fetchAlbums(with: searchText)
-        searchController.searchBar.resignFirstResponder()
+        searchController.isActive = false
     }
 }
 

@@ -21,7 +21,7 @@ class BackendManager {
             if let searchedRecently = realm.objects(SearchedRecently.self).first {
                 guard searchedRecently.queries.first(where: { $0.lowercased() == query.lowercased()}) == nil else { return }
                 try realm.write {
-                    searchedRecently.queries.append(query)
+                    searchedRecently.queries.insert(query, at: 0)
                 }
             } else {
                 let searchedRecently = SearchedRecently()
