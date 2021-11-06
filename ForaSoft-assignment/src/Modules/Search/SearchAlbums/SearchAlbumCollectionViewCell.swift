@@ -1,5 +1,5 @@
 //
-//  AlbumCell.swift
+//  AlbumCollectionViewCell.swift
 //  ForaSoft-assignment
 //
 //  Created by Nihad on 1/14/21.
@@ -8,42 +8,30 @@
 import UIKit
 import Kingfisher
 
-class AlbumCell: UICollectionViewCell {
-    
-    // MARK: - Properties
-    
+final class SearchAlbumCollectionViewCell: UICollectionViewCell {
+
     private let artworkImageView: UIImageView = {
         let artworkImageView = UIImageView()
         artworkImageView.contentMode = .scaleAspectFill
-        
         return artworkImageView
     }()
-    
-    // MARK: - Lifecycle
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        configureUI()
+
+        layout()
     }
-    
+
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError("init(coder:) has not been implemented. No storyboards")
     }
-    
-    // MARK: - Helpers
-    
-    func configureUI() {
-        configureSubviews()
-    }
-    
-    func configureSubviews() {
+
+    private func layout() {
         contentView.addSubview(artworkImageView)
         artworkImageView.autoPinEdgesToSuperviewEdges()
     }
-    
-    func set(with artworkURL: URL?) {
-        self.artworkImageView.kf.setImage(with: artworkURL)
+
+    func set(with artworkUrl: URL?) {
+        artworkImageView.kf.setImage(with: artworkUrl)
     }
-    
 }
