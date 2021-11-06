@@ -88,6 +88,7 @@ final class SearchAlbumsViewController: UIViewController {
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchBar.placeholder = "e. g. Frank Sinatra"
+        searchController.searchBar.searchTextField.clearButtonMode = .never
     }
 
     private func layout() {
@@ -173,6 +174,7 @@ extension SearchAlbumsViewController: UISearchBarDelegate {
         }
         getAlbums(withTitle: query)
         searchController.isActive = false
+        searchBar.text = query
     }
 }
 
