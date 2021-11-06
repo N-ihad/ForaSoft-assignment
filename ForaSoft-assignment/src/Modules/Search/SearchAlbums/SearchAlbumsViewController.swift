@@ -70,7 +70,9 @@ final class SearchAlbumsViewController: UIViewController {
                 albums = Album.removeDuplicateAlbums(albums).sorted { $0.collectionName < $1.collectionName }
                 self?.albums = albums
             case .failure(let error):
-                print(error.localizedDescription)
+                let alert = UIAlertController(title: "Error", message: "\(error.localizedDescription)", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                self?.present(alert, animated: true)
             }
         }
     }
