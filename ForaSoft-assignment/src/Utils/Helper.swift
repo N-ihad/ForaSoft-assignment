@@ -1,5 +1,5 @@
 //
-//  Utilities.swift
+//  Helper.swift
 //  ForaSoft-assignment
 //
 //  Created by Nihad on 1/14/21.
@@ -8,7 +8,7 @@
 import Foundation
 import SwiftyJSON
 
-struct Utilities {
+struct Helper {
     static func parseJsonData(_ data: Data) -> [Album] {
         let json = JSON(parseJSON: String(decoding: data, as: UTF8.self))
         let albumsToParse = json.dictionaryValue["results"] ?? []

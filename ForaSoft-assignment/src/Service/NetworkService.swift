@@ -30,7 +30,7 @@ final class NetworkService: Networkable {
 
                 switch result {
                 case let .success(response):
-                    let results = Utilities.parseJsonData(response.data)
+                    let results = Helper.parseJsonData(response.data)
                     DispatchQueue.main.async {
                         completion(.success(results))
                     }

@@ -18,7 +18,7 @@ final class TabBarController: UITabBarController {
 
     private func setup() {
         let searchViewController = SearchAlbumsViewController()
-        let searchNavigationController = Utilities.makeNavigationController(
+        let searchNavigationController = Helper.makeNavigationController(
             image: .searchTabBarIcon,
             title: "Search",
             rootViewController: searchViewController
@@ -26,7 +26,7 @@ final class TabBarController: UITabBarController {
 
         let searchHistoryViewController = SearchHistoryViewController()
         searchHistoryViewController.delegate = searchViewController
-        let searchHistoryNavigationController = Utilities.makeNavigationController(
+        let searchHistoryNavigationController = Helper.makeNavigationController(
             image: .listTabBarIcon,
             title: "Search History",
             rootViewController: searchHistoryViewController
