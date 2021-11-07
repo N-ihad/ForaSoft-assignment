@@ -18,6 +18,7 @@ final class SearchHistoryTableViewCell: UITableViewCell {
     private let titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.font = .boldSystemFont(ofSize: 18)
+        titleLabel.autoSetDimension(.width, toSize: UIScreen.main.bounds.width - 84)
         return titleLabel
     }()
 
