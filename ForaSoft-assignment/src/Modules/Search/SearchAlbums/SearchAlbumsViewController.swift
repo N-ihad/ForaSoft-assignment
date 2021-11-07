@@ -171,7 +171,8 @@ extension SearchAlbumsViewController: UICollectionViewDelegate, UICollectionView
 // MARK: - UISearchBarDelegate
 extension SearchAlbumsViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let query = searchBar.text else {
+        guard let query = searchBar.text,
+              !query.trimmingCharacters(in: .whitespaces).isEmpty else {
             return
         }
         getAlbums(withTitle: query)
