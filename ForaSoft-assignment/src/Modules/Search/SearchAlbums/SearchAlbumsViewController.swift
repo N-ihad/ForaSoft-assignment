@@ -183,6 +183,7 @@ extension SearchAlbumsViewController: UISearchBarDelegate {
 // MARK: - SearchHistoryViewControllerDelegate
 extension SearchAlbumsViewController: SearchHistoryViewControllerDelegate {
     func searchHistoryViewControllerDidSelectSearchedAlbum(withTitle title: String) {
+        navigationController?.popToRootViewController(animated: true)
         getAlbums(withTitle: title)
     }
 }
