@@ -43,4 +43,12 @@ struct Helper {
         navigationController.title = title
         return navigationController
     }
+
+    static func makeEmptyTableViewLabel() -> UILabel {
+        let label = UILabel()
+        label.font = .boldSystemFont(ofSize: 22)
+        label.text = "You haven't searched yet"
+        label.textColor = .gray
+        return label
+    }
 }

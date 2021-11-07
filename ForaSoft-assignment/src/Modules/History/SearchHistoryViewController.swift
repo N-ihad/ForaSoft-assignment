@@ -18,8 +18,11 @@ final class SearchHistoryViewController: UIViewController {
     private let identifier = "cell"
     private let tableView = UITableView()
 
+    private let emptyTableViewLabel = Helper.makeEmptyTableViewLabel()
+
     private var searchedAlbums = PersistenceManager.shared.searchedAlbums {
         didSet {
+            checkIfTableViewEmpty()
             tableView.reloadData()
         }
     }
@@ -53,6 +56,16 @@ final class SearchHistoryViewController: UIViewController {
 
     private func style() {
         view.backgroundColor = .white
+    }
+
+    private func checkIfTableViewEmpty() {
+        if searchedAlbums.isEmpty {
+            tableView.backgroundView = emptyTableViewLabel
+            emptyTableViewLabel.autoCenterInSuperview()
+        } else {
+            emptyTableViewLabel.removeFromSuperview()
+            tableView.backgroundView = nil
+        }
     }
 }
 

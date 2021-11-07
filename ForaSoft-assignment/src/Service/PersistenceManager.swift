@@ -29,6 +29,10 @@ struct PersistenceManager {
         do {
             let realm = try Realm()
 
+            guard realm.objects(SearchedAlbum.self).first(where: { $0.title == title }) == nil else {
+                return
+            }
+
             try realm.write {
                 realm.add(SearchedAlbum(title: title))
             }

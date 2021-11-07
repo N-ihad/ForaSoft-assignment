@@ -20,4 +20,8 @@ extension UIImage {
     static var delete: UIImage {
         UIImage(systemName: "xmark.circle.fill")!
     }
+
+    static var list: UIImage {
+        UIImage(systemName: "list.bullet.rectangle.fill")!
+    }
 }
